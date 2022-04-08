@@ -6,6 +6,7 @@ import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 import xss from "xss-clean";
+import v1Routes from "./routes";
 import errorHandler from "./middlewares/errorHandler.middleware";
 import { NotFoundError } from "./helpers/errors.helper";
 
@@ -95,7 +96,7 @@ app.use(
 /**
  * Routes definitions
  */
-// app.use("/api/v1/", v1Routes);
+app.use("/api/v1/", v1Routes);
 
 /**
  * This helper function is useful if we use express as a pure API endpoint
