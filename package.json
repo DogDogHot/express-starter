@@ -1,6 +1,6 @@
 {
-  "name": "express-boilerplate",
-  "description": "express boilerplate",
+  "name": "express-starter",
+  "description": "express starter",
   "version": "1.0.0",
   "private": false,
   "license": "MIT",
@@ -15,7 +15,7 @@
   },
   "keywords": [
     "api",
-    "boilerplate",
+    "starter",
     "express",
     "mysql",
     "node",
@@ -23,12 +23,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/DogDogHot/express-boilerplate"
+    "url": "https://github.com/DogDogHot/express-starter"
   },
   "scripts": {
     "start": "npm run prod",
     "prod": "cross-env NODE_ENV=production npm-run-all build server",
     "build": "npm-run-all clean transpile",
+    "clean": "rimraf build",
+    "transpile": "babel src --out-dir build",
     "server": "node ./build/bin/www",
     "start:dev": "cross-env NODE_ENV=development nodemon -L --inspect=0.0.0.0 --exec ./node_modules/.bin/babel-node src/bin/www",
     "lint": "eslint -c './.eslintrc' --ignore-path .gitignore --ext .js .",
@@ -51,6 +53,7 @@
     "lodash": "^4.17.21",
     "morgan": "^1.10.0",
     "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
     "regenerator-runtime": "^0.13.9",
     "xss-clean": "^0.1.1"
   },
